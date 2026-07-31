@@ -1,0 +1,21 @@
+# Ignore large codebases (they can be cloned separately)
+codebases/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+
+# Auto-generated tool files
+.github/
+
+# Generated outputs are kept for reproducibility
+# study/assets/  (intentionally tracked)

@@ -1,0 +1,66 @@
+project,language,filename,file,blank,comment,code
+vespa,8124,Java,135541,107153,698072
+vespa,3915,C++,83745,20274,565769
+vespa,3614,C/C++ Header,42523,54574,170533
+vespa,400,XML,792,606,139881
+vespa,147,JSON,5,0,82344
+vespa,182,Text,461,0,71083
+vespa,265,Go,3244,1209,28148
+vespa,170,Maven,369,532,18646
+vespa,1123,CMake,508,1293,15475
+vespa,165,Bourne Shell,1160,589,5832
+vespa,248,Windows Module Definition,1406,0,5286
+vespa,17,Protocol Buffers,755,3638,2058
+vespa,30,JSX,152,64,1744
+vespa,13,HTML,102,22,1736
+vespa,75,Markdown,595,65,1722
+vespa,48,Python,353,217,1719
+vespa,19,Bourne Again Shell,285,203,1650
+vespa,6,Perl,170,131,877
+vespa,14,JavaScript,37,17,772
+vespa,15,YAML,152,52,728
+vespa,17,Ruby,141,67,711
+vespa,4,C,122,88,606
+vespa,2,ANTLR Grammar,126,15,473
+vespa,2,AsciiDoc,174,14,348
+vespa,5,SVG,1,42,347
+vespa,5,Gradle,56,15,272
+vespa,3,TypeScript,52,7,257
+vespa,1,TLA+,56,364,244
+vespa,4,make,71,45,205
+vespa,1,LLVM IR,33,0,150
+vespa,11,Templ,5,1,72
+vespa,1,DOS Batch,21,2,71
+vespa,1,Windows Resource File,12,0,57
+vespa,8,Properties,6,35,24
+vespa,4,CSV,5,0,15
+vespa,2,DTD,6,6,10
+vespa,1,Dockerfile,4,0,6
+vespa,1,Lisp,0,1,3
+vespa,18663,SUM,273246,191341,1817946
+kubernetes,16269,Go,446113,681230,3760068
+kubernetes,484,JSON,2,0,842678
+kubernetes,1474,YAML,704,2216,164820
+kubernetes,492,Markdown,29921,356,111855
+kubernetes,307,Bourne Shell,6539,12771,33269
+kubernetes,136,Protocol Buffers,6659,28833,12627
+kubernetes,12,PO File,1873,13392,11245
+kubernetes,52,Assembly,2054,923,8890
+kubernetes,25,Text,112,0,4284
+kubernetes,6,PowerShell,398,1012,2541
+kubernetes,53,make,519,898,1802
+kubernetes,29,Starlark,86,14,1181
+kubernetes,13,Bourne Again Shell,165,242,1115
+kubernetes,4,sed,4,32,437
+kubernetes,5,SVG,4,4,399
+kubernetes,42,Dockerfile,169,617,327
+kubernetes,6,Python,96,143,303
+kubernetes,6,C,59,76,201
+kubernetes,1,ANTLR Grammar,35,17,155
+kubernetes,1,Bazel,18,13,114
+kubernetes,3,INI,10,0,42
+kubernetes,3,TOML,9,55,21
+kubernetes,2,CSV,0,0,3
+kubernetes,1,DOS Batch,2,17,2
+kubernetes,1,HTML,0,0,1
+kubernetes,19427,SUM,495551,742861,4958380
