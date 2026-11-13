@@ -1,6 +1,16 @@
 # Ignore large codebases (they can be cloned separately)
 codebases/
 
+# Generated from study/longitudinal/raw.tar.xz by 02-extract-snapshots.sh
+study/longitudinal/raw/
+study/longitudinal/snapshots/
+study/longitudinal/results/
+
+# Kept local, not part of the replication package
+study/notebooks/02-longitudinal-analysis.ipynb
+study/agent/
+study/longitudinal/README.md
+
 # Python
 .venv/
 __pycache__/

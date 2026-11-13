@@ -63,9 +63,8 @@ in_specs && /\{Version:[[:space:]]*version\.MustParse\(/ {
         gsub(/^[[:space:]]+|[[:space:]]+$/, "", comment)
         if (comment ~ /[Rr]emove|[Dd]eprecate|GA/) {
             expiration_comment = comment
-            # Also extract version number if present
-            if (comment ~ /[0-9]+\.[0-9]+/) {
-                match(comment, /([0-9]+\.[0-9]+)/, ver)
+            # removal version = version after "remove" (not the first version, e.g. "GA in 1.30; remove in 1.32")
+            if (match(comment, /[Rr]emove[^0-9]*v?([0-9]+\.[0-9]+)/, ver)) {
                 removal_version = ver[1]
             }
         }
@@ -88,8 +87,7 @@ in_specs && /^[[:space:]]*\/\// && !/\{Version:/ {
             expiration_comment = comment
         }
         # Extract version number if present
-        if (comment ~ /[0-9]+\.[0-9]+/ && removal_version == "") {
-            match(comment, /([0-9]+\.[0-9]+)/, ver)
+        if (removal_version == "" && match(comment, /[Rr]emove[^0-9]*v?([0-9]+\.[0-9]+)/, ver)) {
             removal_version = ver[1]
         }
     }

@@ -2,29 +2,31 @@
 
 **Paper:** *Declaration Is Not Enough: Feature Toggle Expiration in Practice*  
 **Author:** Xhevahire Tërnava (Télécom Paris)  
-**Venue:** ACM Transactions on Software Engineering and Methodology (TOSEM)
 
 ---
 
-We study whether declaring expiration metadata on feature toggles actually prevents them from becoming stale. We mined 2,659 toggles from four open-source systems and found that declaration alone is insufficient, only automated enforcement achieves zero staleness.
+We study whether declaring when a feature toggle should expire keeps toggles from staying in the code past that point. We mined 2,659 toggles from four open-source systems, and then followed their deadlines over time. Declaring a deadline is not enough: in two systems, many toggles are overdue.
 
 ## quick start
 
 ```bash
 pip install -r requirements.txt
+(cd study/longitudinal && ./02-extract-snapshots.sh)  # once, about 5 minutes
 cd study/notebooks
-jupyter notebook 01-ft-all-analysis.ipynb   # run all cells
+jupyter notebook 01-ft-all-analysis.ipynb      # run all cells, first snapshot (T0)
+jupyter notebook 02-staleness-over-time.ipynb  # run all cells, over time up to T1
 ```
 
-This reproduces every figure and statistic in the paper from the pre-extracted data in `study/data/`.
+The first notebook reproduces the figures and Table 2 of Sections 4.1 and 4.2 at the first snapshot (T0) from the data in `study/data/`. It does not need the codebases. The second notebook reproduces the figure of the overdue share over time and Table 3 (Section 4.2). Its input comes from `study/longitudinal/02-extract-snapshots.sh`, which runs the same extraction scripts as at T0 on every downloaded point in time.
 
 ## what's inside
 
 ```
 study/
-├── data/          5 CSV files with all extracted toggle data
+├── data/          5 CSV files with all extracted toggle data at T0
 ├── scripts/       Shell scripts that produced those CSVs from source
-├── notebooks/     Analysis notebook (figures + statistics)
+├── notebooks/     Analysis notebooks, at T0 and over time (figures + tables)
+├── longitudinal/  Scripts and downloaded files for the history up to T1
 └── assets/        Generated figures used in the paper (PDF + PNG)
 ```
 
@@ -62,6 +64,15 @@ Requirements: `bash`, `jq`, `awk`. The codebases are large (~60 GB combined), so
 | `00-count-loc-all.csv` | Lines of code per language per project (from `cloc`) |
 
 The last script may take a lot of time to compute the LoC for Chromium. 
+
+
+<!-- ## corrections
+
+While extending the scripts to the history, we found and fixed two errors. All numbers in the paper use the corrected data.
+
+- Kubernetes: in comments such as "GA in 1.30, remove in 1.32", the extraction script took the first version (1.30) as the removal version. It now takes the version that follows "remove". This changes 11 gates, and the overdue gates at T0 drop from 10 to 1 of 50.
+- GitLab: the notebook read the `milestone` field as a number, so 18.10 became 18.1 and 8 flags introduced in 18.10 were counted as overdue. It now reads the field as text. The overdue flags at T0 drop from 120 to 112 of 198.
+-->
 
 ## license
 
